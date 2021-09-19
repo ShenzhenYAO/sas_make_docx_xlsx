@@ -1,4 +1,4 @@
-# Create/modify WORD docx files by SAS code.
+# Creating/modifing WORD docx files by SAS
 
 Specifically, the egp file in the folder "sas_code/" is expected to do the following:
 1. import data from word/document.xml from the template docx file (indeed a docx file is a zip file), and save into a data set, e.g., import data from textcontent of the tag <w:t>, and save into a SAS dataset called 'title', in the column 'title_text'.
