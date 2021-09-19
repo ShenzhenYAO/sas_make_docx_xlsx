@@ -1,0 +1,33 @@
+<!-- https://support.sas.com/resources/papers/proceedings/proceedings/sugi30/099-30.pdf -->
+<SXLEMAP version="1.1" name="DDIMAP">
+    <TABLE name="table3">
+        <TABLE-PATH>/body/table3</TABLE-PATH>
+        <COLUMN name="col1">
+            <PATH>/body/table3/cols/col_1</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+        <COLUMN name="col2">
+            <PATH>/body/table3/cols/col_2/t</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+        <!-- The following is to get the value of the attribute ('type') of the table3 tag and save into the column 'table3_type' -->
+        <COLUMN name="table3_type">
+            <PATH>/body/table3/@type</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+
+        <!-- The colume name can be different from the original tag name -->
+        <COLUMN name="var3">
+            <PATH>/body/table3/col_3</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+    </TABLE>
+</SXLEMAP> 

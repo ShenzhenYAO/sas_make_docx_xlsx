@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- By default (if the xmlmap is not specified), SAS only recognizes an xml of three level hierarchies:
+an ancestor tag (i.e., body in this example), in which the table tag (i.e., table) is nested, in which the 
+column tag (col1-col3) is nested -->
+<body xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="8" uniqueCount="8">
+    <table1>
+        <col1>value of r1c1</col1>
+        <col2>valeu of r1c2</col2>
+    </table1>
+    <table1>
+        <col1>value of r2c1</col1>
+        <col2>valeu of r2c2</col2>
+        <col3>valeu of r2c3</col3>
+    </table1>
+    <table2 type="test2">
+        <colA>value of r1c1</colA>
+    </table2>
+    <!-- The following reflects a complex structre, 
+    in which col_1 to 3 are in different depth level of the xml hierarchy  -->
+    <table3 type="test3">
+        <cols>
+            <col_1>value of r1c1 of table3</col_1>
+            <col_2><t>value of r1c2 of table3</t></col_2>
+            <!-- the following line won't be read into the SAS data
+            for the same named tag within the table3 tag, only the first will be used for reading data, the rest ignored -->
+            <col_1>value of r2c1 of table3</col_1>
+        </cols>
+        <col_3>value of r1c3 of table3</col_3>
+    </table3>
+    <table3 type="test3">
+        <cols>
+            <col_1>value of r2c1 of table3</col_1>
+        </cols>
+        <col_3>value of r2c3 of table3</col_3>
+    </table3>
+</body>

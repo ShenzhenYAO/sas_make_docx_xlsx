@@ -1,0 +1,50 @@
+<!-- a map file to export SAS data to an xml file of complex structure
+ There are yet problems to solve though
+ For example, 
+ - what if there are multiple tables to import data from? Does the map file allow multiple OUTPUT tags
+ - how to output to two table tags (w:tbl) from separate tables (each for the credential table, and the steps table)
+  -->
+<SXLEMAP version="2.1">
+
+    <NAMESPACES count="1">
+        <NS id="1" prefix="w">http://schemas.openxmlformats.org/wordprocessingml/2006/main</NS>
+    </NAMESPACES>
+
+    <OUTPUT>
+        <HEADING>
+            <ATTRIBUTE name="xmlns:wpc" value="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" />
+            <ATTRIBUTE name="xmlns:mc" value="http://schemas.openxmlformats.org/markup-compatibility/2006" />
+            <ATTRIBUTE name="xmlns:w" value="http://schemas.openxmlformats.org/wordprocessingml/2006/main" />
+        </HEADING>
+        <TABLEREF name="rd" />
+    </OUTPUT>
+
+    <TABLE name="rd">
+        <!-- Notes:
+        1. unlike importing data from an xml file (the name space tag is noted as {1}document), here, the name space
+            tag is noted as w:document. However, the following must be stated at the top of this map file:
+            a. The namespaces have to be stated like "<NAMESPACES...."
+            b. The attribute for xmlns:w has to be specified in output/heading like:
+            <OUTPUT>
+                <HEADING>
+                    <ATTRIBUTE name="xmlns:w" value="http://schemas.openxmlformats.org/wordprocessingml/2006/main" /> 
+            if the attribute xmlns:w is not specified, SAS report error as the xml is not complete (missing definition of the shortcut 'w:')           
+        2. also unlike imporint data, here, path must be specified as /w:document instead of w:document (the heading slash is to specify absolute Table-path)
+            without the heading slash, SAS report error: Non-absolute TABLE-PATH prevents output reconstruction -->
+        <TABLE-PATH syntax="XPathENR">/w:document</TABLE-PATH>
+        <COLUMN name="title_style">
+            <!-- the tag names and attribute names will follow exactly the case forms as specified 
+            in the following, the path w:pPr is in mixed case form, and the tag in the output xml is <w:pPr> -->
+            <PATH syntax="XPathENR">/w:document/w:body/w:p/w:pPr/@w:val</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+        <COLUMN name="title_text">
+            <PATH syntax="XPathENR">/w:document/w:body/w:p/w:r/w:t</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+    </TABLE>
+</SXLEMAP>

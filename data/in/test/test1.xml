@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- By default (if the xmlmap is not specified), SAS only recognizes an xml of three lever hirarchies:
+an ancestor tag (i.e., body in this example), in which the table tag (i.e., table) is nested, in which the 
+column tag (col1-col3) is nested -->
+<body xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="8" uniqueCount="8">
+    <table1>
+        <col1>value of r1c1</col1>
+        <col2>valeu of r1c2</col2>
+    </table1>
+    <table1>
+        <col1>value of r2c1</col1>
+        <col2>valeu of r2c2</col2>
+        <col3>valeu of r2c3</col3>
+    </table1>
+    <table2 type="test">
+        <colA>value of r1c1</colA>
+    </table2>
+</body>

@@ -1,0 +1,21 @@
+<!-- https://support.sas.com/resources/papers/proceedings/proceedings/sugi30/099-30.pdf -->
+<SXLEMAP version="1.1" name="DDIMAP">
+    <TABLE name="table1">
+        <TABLE-PATH>/body/table1</TABLE-PATH>
+        <COLUMN name="col1">
+            <PATH>/body/table1/col1</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+    </TABLE>
+    <TABLE name="table2_renamed_B">
+        <TABLE-PATH>/body/table2</TABLE-PATH>
+        <COLUMN name="colA">
+            <PATH>/body/table2/colA</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+    </TABLE>
+</SXLEMAP> 

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- This example shows how to make sas data from an xml file with namespaces as tags
+    name spaces are like <w:col2>, which is different from the plain tags like <col1>
+    the 'w' before the colon is indeed an acronym for the long string pointing to a URI
+    in the following case, the URL is http://whatever.com/
+    so the tag of col2, if not using the short cut w, should be like 
+    http://whatever.com/:col2 
+    As it is too clumsy, the URI is replaced with the shortcut name 'w' (hence w:col2)
+ -->
+<w:body xmlns:w="http://whatever.com/" 
+    xmlns:q="http://whatever.com/body">
+    <q:table1>
+        <w:col1>value of r1c1</w:col1>
+        <w:col2>value of r1c2</w:col2>
+    </q:table1>
+</w:body>

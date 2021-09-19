@@ -1,0 +1,43 @@
+<!-- https://support.sas.com/resources/papers/proceedings/proceedings/sugi30/099-30.pdf -->
+<SXLEMAP version="2.1" name="DDIMAP">
+    <!-- page 76 of: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.353.5691&rep=rep1&type=pdf -->
+    <!-- This example shows how to make sas data from an xml file with namespaces as tags
+        name spaces are like <w:col2>, which is different from the plain tags like <col1>
+        the 'w' before the colon is indeed an acronym/shortcut for the long string pointing to a URI
+        in the file 'test3.xml', the URL is http://whatever.com/
+        so the tag of col2, if not using the shortcut w, should be like 
+        http://whatever.com/:col2 
+        As it is too clumsy, the URI is replaced with the shortcut name 'w' (hence w:col2)
+
+        to resolve xml with namespaces, 
+        first, a tag <NAMESPACES> should be added in the beginning of the XMLMap file, in which the shortcuts are
+        declared. Note: the URI must be the same as in the xml file (e.g., in the xml file, the xmlns:w="http://whatever.com/
+            then here in this file, the attribute in the NS tag must be prefix="w">http://whatever.com/. SAS cannot render data if the URI are different)
+        next, in the path, table, or colume names, the shortcut name like 'w' is replaced by the corresponding id
+            declared in the NAMESPACES tag (in the case of 'w', the id is 1, so the original namespace in the xmlfile
+            'w:col2' is changed to '{1}col2' )
+        additionally but very importantly, the attribute of 'syntax="XPathENR"' must be added to the tag <PATH>, which
+            is to tell SAS that the path contains ids for namespaces
+        also, only SXLEMAP version 2.1 and above support the NAMESPACE declarations. version 1.0 does not support such declaration.
+        and also, when make statement of libname in SAS code, ue the XMLV2 engine to read the version 2.1 SXLEMAP, instead of the engine XML
+    -->
+    <NAMESPACES count="1">
+        <NS id="1" prefix="w">http://schemas.openxmlformats.org/wordprocessingml/2006/main</NS>
+    </NAMESPACES>
+
+    <TABLE name="title">
+        <TABLE-PATH syntax="XPathENR">{1}document/{1}body/{1}p/{1}r</TABLE-PATH>
+        <COLUMN name="title_style">
+            <PATH syntax="XPathENR">{1}document/{1}body/{1}p/{1}pPr/{1}pStyle/@{1}val</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+        <COLUMN name="title_text">
+            <PATH syntax="XPathENR">{1}document/{1}body/{1}p/{1}r/{1}t</PATH>
+            <TYPE>character</TYPE>
+            <DATATYPE>STRING</DATATYPE>
+            <LENGTH>100</LENGTH>
+        </COLUMN>
+    </TABLE>
+</SXLEMAP> 

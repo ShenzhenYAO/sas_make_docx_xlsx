@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<SXLEMAP version="2.1"> <!--1-->
+  <OUTPUT> <!--2-->
+    <HEADING> 
+      <ATTRIBUTE name="description"
+        value="Teams of the National Hockey League" /> <!--3-->
+    </HEADING>
+    <TABLEREF name="TEAMS" /> <!--4-->
+  </OUTPUT>
+
+  <TABLE name="TEAMS">
+    <TABLE-PATH syntax="XPath">/NHL/CONFERENCE/DIVISION/TEAM</TABLE-PATH>
+
+    <COLUMN name="CONFERENCE" retain="YES">
+      <PATH syntax="XPath">/NHL/CONFERENCE</PATH>
+      <TYPE>character</TYPE>
+      <DATATYPE>STRING</DATATYPE>
+      <LENGTH>10</LENGTH>      
+    </COLUMN>
+  </TABLE>
+</SXLEMAP>
