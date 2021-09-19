@@ -12,10 +12,10 @@ In the .egp file, there are two embedded programs. The first contains basics to 
 Although it is doable, the SAS way of creating/modifying a word docx is quite clumsy. 
 
 First, the input data has to be put into tables. For example, to add a paragraph as a research step like:
-    Step 1:
-    Create a cohort from the following source:
-    - PHRS
-    - DP_claims
+>Step 1:
+>Create a cohort from the following source:
+>- PHRS
+>- DP_claims
 
 A data table must be created with multiple records, each for a line of the above text. This is against the normal practice of SAS coding, as users prefer to write these steps in comments of SAS code, and let a program to 
 read and convert to steps in a word docx automatically.
