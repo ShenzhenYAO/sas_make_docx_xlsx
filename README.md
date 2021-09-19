@@ -27,5 +27,5 @@ Second, it remains unknown how to output to the same xml from multiple tables.
 
 Third, the SAS method of adding an xml file into a docx has problems. It just cannot make it right (perhaps adding unidentifiable strange characters when reading data into a zip). 
 
-In summary, this project shows that manupilate a docx file by SAS is possible but not recommended. 
+In summary, this project shows that manupilating a docx file by SAS is possible but not recommended. 
 A better way is to use the JavaScript tool in the project __sas_egp_v8tov7__. That project is initially for converting SAS Enterprise Guide Project (egp) files from v8 to v7. However, it as well provides a way to read comments (for description of research steps) from a SAS code file, and save as research steps into a docx file.
