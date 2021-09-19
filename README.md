@@ -21,12 +21,11 @@ A data table must be created with multiple records, each for a line of the above
 read and convert to steps in a word docx automatically.
 
 Second, it remains unknown how to output to the same xml from multiple tables. 
-should user create multiple xmlmap files? if so, when exporting data to the same xml file, would it be overwritten each time using a different xmlmap
+- Should user create multiple xmlmap files? 
+- If so, when exporting data to the same xml file, would it be overwritten each time using a different ?
+- ...
 
-Third, the SAS method of adding an xml file into a docx has problems. It just cannot make it right (perhaps adding unidentifiable strange 
-characters when reading data into a zip). 
+Third, the SAS method of adding an xml file into a docx has problems. It just cannot make it right (perhaps adding unidentifiable strange characters when reading data into a zip). 
 
-In summary, this project is to show that editing a docx file by SAS is possible. However, it is not recommended. 
-A better way is to use the js tool in 
-sas_egp_v8tov7. That one is initially for converting epg files from v8 to v7, but it also provide tools to read comments (for description of 
-research steps) from a SAS code file, and save as research steps into a docx file
+In summary, this project shows that editing a docx file by SAS is possible but not recommended. 
+A better way is to use the js tool in the project __sas_egp_v8tov7__. That project is initially for converting epg files from v8 to v7. However, it as well provides tools to read comments (for description of research steps) from a SAS code file, and save as research steps into a docx file.
